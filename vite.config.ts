@@ -95,7 +95,7 @@ export default defineConfig((args) => {
   ) return config[command][mode]();
   if (
     command === 'build' &&
-    (mode === 'main' || mode === 'camera' || mode=== 'fpv' || mode === 'production')
+    (mode === 'main' || mode === 'camera' || mode === 'fpv' || mode === 'production')
   ) return config[command][mode]();
   throw new Error('Unknown config modifiers');
 });
