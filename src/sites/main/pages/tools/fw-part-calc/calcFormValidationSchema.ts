@@ -1,6 +1,5 @@
 import type { FormValidationSchema } from './hooks/useCalc-types';
 import { isDecOrHexNumber, isNonEmpty, isDigitsOnly } from '../../../../../utils/validators';
-import { FwCalcFormSchema } from './calcFormSchema';
 
 export const FwCalcFormValidationSchema: FormValidationSchema = {
   'MTD-device-name': [
@@ -36,7 +35,7 @@ export const FwCalcFormValidationSchema: FormValidationSchema = {
   ],
   'part0-name': [
     { 
-      fn: (_) => true,
+      fn: () => true,
       error: '',
     },
   ],
@@ -138,7 +137,7 @@ export const FwCalcFormValidationSchema: FormValidationSchema = {
   ],
   'part6-name': [
     { 
-      fn: (_) => true,
+      fn: () => true,
       error: '',
     },
   ],
@@ -155,7 +154,7 @@ export const FwCalcFormValidationSchema: FormValidationSchema = {
   ],
   'part7-name': [
     { 
-      fn: (_) => true,
+      fn: () => true,
       error: '',
     },
   ],
