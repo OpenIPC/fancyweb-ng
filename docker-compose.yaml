@@ -1,0 +1,13 @@
+services:
+  app:
+    tty: true
+    stdin_open: true
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: dev-main
+    ports:
+      - 5173:5173
+    volumes:
+      - ./:/opt/app

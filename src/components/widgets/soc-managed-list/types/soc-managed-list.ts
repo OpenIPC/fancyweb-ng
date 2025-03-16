@@ -7,6 +7,11 @@ export type SoCItem = {
   bootloader: string,
   firmware: string,
   featured: boolean,
+  core: null | string,
+  ai: null | number,
+  package: null | string,
+  encoder: null | string,
+  memory: null | number,
 }
 
 export type SoCManagedListProps = {

@@ -1,10 +1,11 @@
 import { CameraSnapshotProps, CamData } from './types';
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useState, useRef } from 'preact/hooks';
 import UIIcons from '../../../assets/icons/ui';
 import snapshot from '../../../assets/pics/snapshot.jpg';
+import Hls from 'hls.js';
 
 export default function CameraSnapshot(props: CameraSnapshotProps) {
-  const { id } = props;
+  //const { id } = props;
   const { CameraPreloader } = UIIcons;
   const [camData, setCamData] = useState<CamData>({
     soc: '',
@@ -15,7 +16,8 @@ export default function CameraSnapshot(props: CameraSnapshotProps) {
     resolution: '',
     size: 0,
   });
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const video = useRef(null);
 
   useEffect(() => {
     setCamData({...camData,
@@ -27,8 +29,25 @@ export default function CameraSnapshot(props: CameraSnapshotProps) {
       resolution: '1920x1080',
       size: 84624,
     });
-    setTimeout(() => setLoading(false), 40000);
-  })
+    //setTimeout(() => setLoading(false), 2000);
+    const videoSrc = 'http://localhost:4000/index.m3u8';
+    if (Hls.isSupported()) {
+      const config = {
+        lowLatencyMode: false,
+        enableWorker: true,
+        backBufferLength: 60,
+      };
+      const hls = new Hls(config);
+      hls.on(Hls.Events.MEDIA_ATTACHED, function() {
+        console.log('Video tag and hls.js are attached');
+      });
+      hls.on(Hls.Events.MANIFEST_PARSED, function(_, data) {
+        console.log('manifest loaded, found ' + data.levels.length + ' quality level');
+      });
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video.current);
+    }
+  });
 
   return (
     <div className="border-wallet-border border rounded-md">
@@ -49,7 +68,7 @@ export default function CameraSnapshot(props: CameraSnapshotProps) {
           </div></>
         : <>
             <div className="min-w-40 aspect-[16/9]">
-              <img src={snapshot} className="rounded-t"></img>
+              <video className="min-w-40 w-full aspect-[16/9]" ref={video} autoplay></video>
             </div>
             <div className="p-2 pt-4">
               <div className="flex flex-row flex-nowrap justify-between gap-x-4">
