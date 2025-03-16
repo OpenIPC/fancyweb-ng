@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@preact/signals": "^1.2.3",
+    "hls.js": "^1.5.18",
     "preact": "^10.19.6",
     "preact-iso": "^2.6.3",
     "preact-render-to-string": "^6.5.5"
