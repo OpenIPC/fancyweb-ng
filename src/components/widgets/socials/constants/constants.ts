@@ -15,10 +15,6 @@ export const socialContants: Social<keyof typeof SocialIcons> = [
     link: 'https://twitter.com/openipc',
   },
   {
-    title: 'Facebook',
-    link: 'https://www.facebook.com/groups/956912811789726',
-  },
-  {
     title: 'YouTube',
     link: 'https://www.youtube.com/@openipc',
   },
