@@ -11,14 +11,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20.11'
+          node-version: '22.11'
       - name: Enable and set up Yarn
         run: |
           corepack enable
           yarn set version stable
       - name: Install packages and build
         run: |
-          yarn install
+          yarn install --check-cache
           yarn run build-main
       - name: Get production artifact
         uses: actions/upload-artifact@v4
