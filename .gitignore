@@ -26,3 +26,7 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# yarn PnP files
+.pnp.cjs*
+.pnp.loader.mjs

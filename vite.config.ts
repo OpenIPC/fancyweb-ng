@@ -11,36 +11,27 @@ const serverOpts = {
   host: '0.0.0.0',
   port: 5173,
 }
+
+const fn = (root: string) => {
+  return {
+    root,
+    server: serverOpts,
+    plugins: [preact(), svgr(svgrOpts)],
+  }
+}
+
 export default defineConfig((args) => {
   const { command, mode } = args;
   console.log(command, mode);
   const config = {
     serve: {
-      main: () => {
-        return {
-          root: "./src/sites/main",
-          server: serverOpts,
-          plugins: [preact(), svgr(svgrOpts)],
-        }
-      },
-      camera: () => {
-        return {
-          root: "./src/sites/camera",
-          server: serverOpts,
-          plugins: [preact(), svgr(svgrOpts)],
-        }
-      },
+      main: () => fn('./src/sites/main'),
+      camera: () => fn('./src/sites/camera'),
+      fpv: () => fn('./src/sites/fpv'),
       test: () => {
         return {
           root: "./src/utils",
           server: serverOpts,
-        }
-      },
-      fpv: () => {
-        return {
-          root: "./src/sites/fpv",
-          server: serverOpts,
-          plugins: [preact(), svgr(svgrOpts)],
         }
       },
       development: () => {
