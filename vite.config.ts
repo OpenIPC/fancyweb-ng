@@ -12,67 +12,41 @@ const serverOpts = {
   port: 5173,
 }
 
-const fn = (root: string) => {
+const getServeConf = (root?: string) => {
   return {
-    root,
+    ...(root && { root }),
     server: serverOpts,
     plugins: [preact(), svgr(svgrOpts)],
   }
 }
 
-export default defineConfig((args) => {
+const getBuildConf = (root: string, outDir: string, publicDir?: string) => {
+  return {
+    root,
+    ...(publicDir && { publicDir }),
+    build: {
+      outDir,
+      emptyOutDir: true,
+    },
+    plugins: [preact(), svgr(svgrOpts)],
+  }
+}
+
+export default defineConfig((args: { command: string, mode: string }) => {
   const { command, mode } = args;
   console.log(command, mode);
   const config = {
     serve: {
-      main: () => fn('./src/sites/main'),
-      camera: () => fn('./src/sites/camera'),
-      fpv: () => fn('./src/sites/fpv'),
-      test: () => {
-        return {
-          root: "./src/utils",
-          server: serverOpts,
-        }
-      },
-      development: () => {
-        return {
-          server: serverOpts,
-          plugins: [preact(), svgr(svgrOpts)],
-        }
-      },
+      main: () => getServeConf('./src/sites/main'),
+      camera: () => getServeConf('./src/sites/camera'),
+      fpv: () => getServeConf('./src/sites/fpv'),
+      test: () => getServeConf('./src/utils'),
+      development: () => getServeConf(),
     },
     build: {
-      main: () => {
-        return {
-          root: "./src/sites/main",
-          publicDir: "./public",
-          build: {
-            outDir: '../../../dist/main',
-            emptyOutDir: true,
-          },
-          plugins: [preact(), svgr(svgrOpts)],
-        }
-      },
-      camera: () => {
-        return {
-          root: "./src/sites/camera",
-          build: {
-            outDir: '../../../dist/camera',
-            emptyOutDir: true,
-          },
-          plugins: [preact(), svgr(svgrOpts)],
-        }
-      },
-      fpv: () => {
-        return {
-          root: "./src/sites/fpv",
-          build: {
-            outDir: '../../../dist/fpv',
-            emptyOutDir: true,
-          },
-          plugins: [preact(), svgr(svgrOpts)],
-        }
-      },
+      main: () => getBuildConf('./src/sites/main', '../../../dist/main', './public'),
+      camera: () => getBuildConf('./src/sites/camera', '../../../dist/camera'),
+      fpv: () => getBuildConf('./src/sites/fpv', '../../../dist/fpv'),
       production: () => {
         return {
           plugins: [preact(), svgr(svgrOpts)],
