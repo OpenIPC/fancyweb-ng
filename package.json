@@ -3,11 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-<<<<<<< HEAD
-  "packageManager": "yarn@4.9.1",
-=======
   "packageManager": "yarn@4.9.2",
->>>>>>> dev
   "scripts": {
     "dev-camera": "vite --mode='camera'",
     "dev-main": "vite --mode='main' --host",
