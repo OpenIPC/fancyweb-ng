@@ -1,10 +1,13 @@
-FROM node:lts-alpine
+FROM node:current-alpine
+
+WORKDIR /opt/fancyweb-ng
+
+COPY package.json yarn.lock ./
+
+RUN corepack enable && yarn set version 4.9.2
+
+RUN yarn install
+
+COPY . ./
 
 EXPOSE 5173
-ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
-RUN mkdir -p /opt/app && corepack enable && corepack install --global pnpm
-
-WORKDIR /opt/app
-USER node
-
-ENTRYPOINT ["docker/start_dev.sh"]

@@ -1,0 +1,21 @@
+services:
+  fancyweb-ng:
+    container_name: fancyweb-ng
+    tty: true
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      no_cache: true
+    command: yarn run dev-main
+    develop:
+      watch:
+        - path: ../src
+          action: sync
+          target: /opt/fancyweb-ng/src
+          ignore:
+            - node_modules
+            - dist
+        - action: rebuild
+          path: packaje.json
+    ports:
+      - 5173:5173

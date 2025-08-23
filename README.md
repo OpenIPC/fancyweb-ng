@@ -30,7 +30,7 @@ Run Storybook: `yarn run storybook`
 Builds are being preparing and be ready soon. Wait a bit.
 
 ## Alternative development way with docker
-Run compose: `docker compose up`
+Run compose: `docker compose -f docker/docker-compose.yaml up --watch`
 
 ### Technical support and donations
 
