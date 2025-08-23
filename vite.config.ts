@@ -28,6 +28,7 @@ const getBuildConf = (root: string, outDir: string, publicDir?: string) => {
       outDir,
       emptyOutDir: true,
     },
+    base: '/fancyweb-ng/',
     plugins: [preact(), svgr(svgrOpts)],
   }
 }
