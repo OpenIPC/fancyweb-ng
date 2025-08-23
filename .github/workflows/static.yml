@@ -1,0 +1,27 @@
+name: gh-pages-deploy 
+run-name: FancyWeb GH Pages deploy
+on:
+  push:
+    branches:
+      - 'deploy'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.18'
+      - name: Enable and set up Yarn
+        run: |
+          corepack enable
+          yarn set version 4.9.2
+      - name: Install packages and build
+        run: |
+          yarn install --check-cache
+          yarn run build-main
+      - name: Get production artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: dist
