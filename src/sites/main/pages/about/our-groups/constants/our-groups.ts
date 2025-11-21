@@ -1,5 +1,5 @@
 export const ourGroupsConstants = {
-  h1: 'Our groups',
+  h1: 'Our Telegram',
   p1: 'We strongly suggest you to install a native [Telegram Messenger](https://telegram.org/) for your platform and use our Telegram groups.',
   warnBanner: 'Please note, you will have to pass a test from our Welcome Bot upon joining a group. The test is a simple as answerring two questions. If you missed the test and find out that you cannot post to the group, leave the group and re-join it again. Watch closely for the Welcome Bot message, click the message and answer the questions.',
   chats: [
