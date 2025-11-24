@@ -53,21 +53,6 @@ export const IPCCoreConstants: TeamProps['members'] = [
     ],
   },
   {
-    imgSrc: 'https://avatars.githubusercontent.com/u/21039610',
-    name: 'John',
-    bio: 'Linux, Coupler, Builder',
-    socials: [
-      {
-        link: 'https://github.com/p0i5k/',
-        icon: 'Github',
-      },
-      {
-        link: 'https://t.me/p0i5k',
-        icon: 'Telegram',
-      }
-    ],
-  },
-  {
     imgSrc: 'https://avatars.githubusercontent.com/u/40539574',
     name: 'Hirrolot',
     bio: 'SmolRTSP',
@@ -98,36 +83,6 @@ export const IPCCoreConstants: TeamProps['members'] = [
     ],
   },
   {
-    imgSrc: 'https://avatars.githubusercontent.com/u/436625',
-    name: 'chertov',
-    bio: 'Mini Streamer',
-    socials: [
-      {
-        link: 'https://github.com/chertov/',
-        icon: 'Github',
-      },
-      {
-        link: 'https://t.me/mAX3773',
-        icon: 'Telegram',
-      }
-    ],
-  },
-  {
-    imgSrc: 'https://avatars.githubusercontent.com/u/2909755',
-    name: 'SSharshunov',
-    bio: 'The ex researcher',
-    socials: [
-      {
-        link: 'https://github.com/SSharshunov/',
-        icon: 'Github',
-      },
-      {
-        link: 'https://t.me/USSSSSH',
-        icon: 'Telegram',
-      }
-    ],
-  },
-  {
     imgSrc: 'https://avatars.githubusercontent.com/u/94921687',
     name: 'Ystinia',
     bio: 'OpenCollective manager, Educational Directions in Europe, Documentation',
@@ -138,21 +93,6 @@ export const IPCCoreConstants: TeamProps['members'] = [
       },
       {
         link: 'https://t.me/Ystinia5',
-        icon: 'Telegram',
-      }
-    ],
-  },
-  {
-    imgSrc: 'https://avatars.githubusercontent.com/u/49194169',
-    name: 'Median Trading Ltd.',
-    bio: 'Production and sale of Equipment',
-    socials: [
-      {
-        link: 'https://github.com/ser177/',
-        icon: 'Github',
-      },
-      {
-        link: 'https://t.me/ser177',
         icon: 'Telegram',
       }
     ],
@@ -198,6 +138,21 @@ export const IPCCoreConstants: TeamProps['members'] = [
       },
       {
         link: 'https://t.me/MAGatchenko',
+        icon: 'Telegram',
+      }
+    ],
+  },
+  {
+    imgSrc: 'https://avatars.githubusercontent.com/u/55500552',
+    name: 'keyldev',
+    bio: 'Software Engineer, Android and .NET Application Developer',
+    socials: [
+      {
+        link: 'https://github.com/keyldev/',
+        icon: 'Github',
+      },
+      {
+        link: 'https://t.me/keyldev',
         icon: 'Telegram',
       }
     ],
@@ -258,6 +213,81 @@ export const IPCCoreConstants: TeamProps['members'] = [
       },
       {
         link: 'https://t.me/LaikaPanda',
+        icon: 'Telegram',
+      }
+    ],
+  },
+  {
+    imgSrc: 'https://avatars.githubusercontent.com/u/21039610',
+    name: 'John',
+    bio: 'Linux, Coupler, Builder',
+    socials: [
+      {
+        link: 'https://github.com/p0i5k/',
+        icon: 'Github',
+      },
+      {
+        link: 'https://t.me/p0i5k',
+        icon: 'Telegram',
+      }
+    ],
+  },
+  {
+    imgSrc: 'https://avatars.githubusercontent.com/u/49194169',
+    name: 'Median Trading Ltd.',
+    bio: 'Production and sale of Equipment',
+    socials: [
+      {
+        link: 'https://github.com/ser177/',
+        icon: 'Github',
+      },
+      {
+        link: 'https://t.me/ser177',
+        icon: 'Telegram',
+      }
+    ],
+  },
+  {
+    imgSrc: 'https://avatars.githubusercontent.com/u/183216891',
+    name: 'Vixand',
+    bio: 'Distribution and promotion IPCam',
+    socials: [
+      {
+        link: 'https://github.com/vixand/',
+        icon: 'Github',
+      },
+      {
+        link: 'https://t.me/ktotud',
+        icon: 'Telegram',
+      }
+    ],
+  },
+  {
+    imgSrc: 'https://avatars.githubusercontent.com/u/436625',
+    name: 'chertov',
+    bio: 'Mini Streamer',
+    socials: [
+      {
+        link: 'https://github.com/chertov/',
+        icon: 'Github',
+      },
+      {
+        link: 'https://t.me/mAX3773',
+        icon: 'Telegram',
+      }
+    ],
+  },
+  {
+    imgSrc: 'https://avatars.githubusercontent.com/u/2909755',
+    name: 'SSharshunov',
+    bio: 'The ex researcher',
+    socials: [
+      {
+        link: 'https://github.com/SSharshunov/',
+        icon: 'Github',
+      },
+      {
+        link: 'https://t.me/USSSSSH',
         icon: 'Telegram',
       }
     ],
