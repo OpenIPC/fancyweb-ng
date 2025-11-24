@@ -6,7 +6,7 @@ export const supportOpenSourceConstants = {
   },
   part2: {
     h2_1: 'Price of the Firmware',
-    p1: 'The right to use the OpenIPC firmware and its components is granted to all users free of charge and only for personal, non-commercial purposes. If you are interested in using OpenIPC for your business projects, please contact [our team](/our-team).',
+    p1: 'The right to use OpenIPC firmware and its components is, in most cases, granted to all users free of charge for personal and non-commercial purposes. If you are interested in using OpenIPC for your business projects, please contact [our team](/our-team) for details, as some firmware components may have a licence different from [MIT](https://opensource.org/licenses/MIT).',
     h2_2: 'Contribute',
     p2: 'Open Source is about sharing, creating something great together, and contributing to the greater good! Whenever you do make an improvement that you think someone else could benefit from, please contribute it back to the project.',
     p3: 'If you\'ve ever been curious or confused about something in the project, faced a problem and couldn\'t find the answer, someone else probably still is, too. Help them by sharing your thoughts, insights and discoveries. There are many ways to contribute to the project, and here are a few examples:',
