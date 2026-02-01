@@ -137,7 +137,7 @@ export const IPCCoreConstants: TeamProps['members'] = [
         icon: 'Github',
       },
       {
-        link: 'https://t.me/MAGatchenko',
+        link: 'https://t.me/GMA_ipc',
         icon: 'Telegram',
       }
     ],
