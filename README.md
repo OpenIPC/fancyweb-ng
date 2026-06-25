@@ -34,7 +34,8 @@ Run compose: `docker compose -f docker/docker-compose.yaml up --watch`
 
 ### Technical support and donations
 
-Please **_[support our project](https://openipc.org/support-open-source)_** with donations or orders for development or maintenance. Thank you!
+Please **_[support our project](https://openipc.org/support-open-source)_** with donations or orders for development or maintenance. 
+Thank you!
 
 
 [logo]: https://openipc.org/assets/openipc-logo-black.svg
