@@ -9,7 +9,6 @@
 - All this collective work of ours is carried out **only through PR**, direct commits are blocked.
 - All the dirty day-to-day work is done in the **dev** branch.
 - All builds and automatic deployment are performed from the **deploy** branch.
-- In the **main** branch, after all tests, only the pure source of truth is stored.
 
 ### Running
 
@@ -34,8 +33,7 @@ Run compose: `docker compose -f docker/docker-compose.yaml up --watch`
 
 ### Technical support and donations
 
-Please **_[support our project](https://openipc.org/support-open-source)_** with donations or orders for development or maintenance. 
-Thank you!
+Please **_[support our project](https://openipc.org/support-open-source)_** with donations or orders for development or maintenance. Thank you!
 
 
 [logo]: https://openipc.org/assets/openipc-logo-black.svg
