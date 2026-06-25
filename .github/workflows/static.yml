@@ -1,17 +1,21 @@
 name: gh-pages-deploy 
 run-name: FancyWeb GH Pages deploy
+
 on:
   push:
     branches:
       - 'deploy'
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
