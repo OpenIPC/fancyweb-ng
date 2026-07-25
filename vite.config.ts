@@ -15,6 +15,11 @@ const serverOpts = {
 
 export default defineConfig({
   root: './src/sites/main',
+  base: '/fancyweb-ng/',
+  build: {
+    outDir: '../../../dist/main',
+    emptyOutDir: true,
+  },
   plugins: [
     preact(),
     svgr(svgrOpts), 
