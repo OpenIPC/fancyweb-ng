@@ -47,10 +47,9 @@ jobs:
       - name: Create .nojekyll file
         run: touch ./dist/.nojekyll
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './dist/main'
-          include-hidden-files: true
   deploy:
     environment:
       name: github-pages
