@@ -5,7 +5,21 @@ on:
   push:
     branches:
       - 'deploy'
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'vite.config.ts'
+      - 'tsconfig.json'
+      - 'tsconfig.node.json'
+      - 'postcss.config.js'
+      - 'tailwind.config.js'
   workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch, tag, or commit SHA to deploy'
+        required: true
+        type: string
+        default: 'deploy'
 
 permissions:
   contents: read
@@ -21,6 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.ref }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
