@@ -24,14 +24,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.18'
-      - name: Enable and set up Yarn
-        run: |
-          corepack enable
-          yarn set version 4.9.2
       - name: Install packages and build
         run: |
-          yarn install --check-cache
-          yarn run build-main
+          npm ci
+          npm run build-main
       - name: Create .nojekyll file
         run: touch ./dist/.nojekyll
       - name: Upload artifact
