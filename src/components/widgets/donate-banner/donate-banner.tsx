@@ -13,25 +13,45 @@ export default function DonateBanner(props: DonateBannerProps) {
     const bannerShop: Record<Sizes, () => JSX.Element> = {
       'small': () => (
         <a className="block" href={donateBannerConstants.small.link.href}>
-          <div className="max-w-80 bg-gradient-to-t from-opencol-donban-bg-from to-opencol-donban-bg-to p-0.5 rounded-full flex flex-row justify-between items-center text-white font-medium">
-              <div className="flex flex-row justify-center items-center grow shrink">
-                <p className="text-[13px] text-center tracking-widest">{donateBannerConstants.small.text}</p>
+          <div className="
+            from-opencol-donban-bg-from to-opencol-donban-bg-to flex max-w-80
+            flex-row items-center justify-between rounded-full bg-linear-to-t
+            p-0.5 font-medium text-white
+          ">
+              <div className="
+                flex shrink grow flex-row items-center justify-center
+              ">
+                <p className="text-center text-[13px] tracking-widest">{donateBannerConstants.small.text}</p>
               </div> 
-              <div className="bg-white w-12 h-12 rounded-full flex flex-col justify-center items-center grow-0 shrink-0 *:w-9 *:h-9">
+              <div className="
+                flex size-12 shrink-0 grow-0 flex-col items-center
+                justify-center rounded-full bg-white
+                *:size-9
+              ">
                 <OpenCollective />
               </div>
           </div>
         </a>
       ),
       'big': () => (
-        <div className="bg-donban-bg border border-light-blue rounded-md w-full min-w-fit flex flex-row p-1">
-          <div className="basis-2/12 flex flex-row justify-center items-center max-w-16 *:w-[clamp(36px,11vw,60px)] *:h-[clamp(36px,11vw,50px)]">
+        <div className="
+          bg-donban-bg border-light-blue flex w-full min-w-fit flex-row
+          rounded-md border p-1
+        ">
+          <div className="
+            flex max-w-16 basis-2/12 flex-row items-center justify-center
+            *:h-[clamp(36px,11vw,50px)] *:w-[clamp(36px,11vw,60px)]
+          ">
             <Coin />
           </div>
-          <div className="basis-10/12 text-action-blue flex flex-col gap-y-0.5 p-1">
+          <div className="
+            text-action-blue flex basis-10/12 flex-col gap-y-0.5 p-1
+          ">
             <p className="text-[clamp(12px,6vw,24px)] font-normal">{donateBannerConstants.big.text[0]}</p>
             <p className="text-xs">
-              <a className="text-brand-blue text-[clamp(10px,3.5vw,18px)] underline" href={donateBannerConstants.big.link.href}>{donateBannerConstants.big.link.text}</a>
+              <a className="
+                text-brand-blue text-[clamp(10px,3.5vw,18px)] underline
+              " href={donateBannerConstants.big.link.href}>{donateBannerConstants.big.link.text}</a>
               {donateBannerConstants.big.text[1]}
             </p>
           </div>

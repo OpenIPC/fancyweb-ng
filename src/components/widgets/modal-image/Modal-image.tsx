@@ -1,11 +1,17 @@
 import {useEffect} from 'preact/hooks';
 import icons from '../../../assets/icons/ui';
 
-export default function ModalImage({ src, alt, close }: { src: string, alt: string, close: () => void }) {
+export default function ModalImage({
+  src, alt, close
+}: { src: string, alt: string, close: () => void }) {
   const { Cross } = icons;
   
   function handleBackdropClick(e: Event) {
-    if (e.target instanceof HTMLDivElement && e.currentTarget instanceof HTMLDivElement && e.currentTarget === e.target) close();
+    if (
+      e.target instanceof HTMLDivElement
+      && e.currentTarget instanceof HTMLDivElement
+      && e.currentTarget === e.target
+    ) close();
   }
 
   function handleEscKeyPress(e: KeyboardEvent) {
@@ -32,11 +38,21 @@ export default function ModalImage({ src, alt, close }: { src: string, alt: stri
   }, [])
 
   return (
-    <div className="fixed left-0 top-0 w-full h-full overflow-x-hidden overflow-y-auto overscroll-y-contain bg-[rgba(0,0,0,0.6)] z-[1500] py-8 outline-0 md:block flex flex-row items-center" onClick={handleBackdropClick}>
-      <div className="w-10/12 mx-auto border rounded-lg bg-white">
-        <div className="flex flex-row p-4 bg-white border-b-2 rounded-t-lg">
-          <p className="w-[calc(100%-24px)] truncate text-brand-blue text-lg">{alt}</p>
-          <div className="w-6 h-6 *:w-6 *:h-6 *:fill-light-blue hover:*:fill-brand-blue hover:cursor-pointer *:transition-all" onClick={close}>
+    <div className="
+      fixed top-0 left-0 z-1500 flex size-full flex-row items-center
+      overflow-x-hidden overflow-y-auto overscroll-y-contain
+      bg-[rgba(0,0,0,0.6)] py-8 outline-0
+      md:block
+    " onClick={handleBackdropClick}>
+      <div className="mx-auto w-10/12 rounded-lg border bg-white">
+        <div className="flex flex-row rounded-t-lg border-b-2 bg-white p-4">
+          <p className="w-[calc(100%-24px)] truncate text-lg text-brand-blue">{alt}</p>
+          <div className="
+            size-6
+            *:size-6 *:fill-light-blue *:transition-all
+            hover:cursor-pointer
+            hover:*:fill-brand-blue
+          " onClick={close}>
             <Cross />
           </div>
         </div>

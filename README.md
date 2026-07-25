@@ -18,18 +18,24 @@ git clone https://github.com/openipc/fancyweb-ng
 cd fancyweb-ng
 ```
 
-Install Node.js.
-Enable Corepack.
+Install Node.js with version 24 and higher.
 
-Install dependencies: `yarn install`
-Run main site development: `yarn run dev-main`
-Run cameras' site development: `yarn run dev-camera`
-Run Storybook: `yarn run storybook`
+### Run dev server
+```shell
+    npm install
+    npm run dev-main
+```
+
+### Or run dev server with Docker
+You can use convenient docker development approach, in root `fancyweb-ng` dir execute shell command:
+``` shell
+docker compose -f docker/docker-compose.yaml up --watch
+```
+Open your browser and load URL: `localhost:5173`
+You can edit source files and development server will react to every change and update data in browser.
+
 
 Builds are being preparing and be ready soon. Wait a bit.
-
-## Alternative development way with docker
-Run compose: `docker compose -f docker/docker-compose.yaml up --watch`
 
 ### Technical support and donations
 

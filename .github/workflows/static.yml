@@ -5,7 +5,20 @@ on:
   push:
     branches:
       - 'deploy'
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.ts'
+      - 'tsconfig.json'
+      - 'tsconfig.node.json'
   workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch, tag, or commit SHA to deploy (leave empty to use selected branch)'
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -20,18 +33,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
         with:
-          node-version: '22.18'
-      - name: Enable and set up Yarn
-        run: |
-          corepack enable
-          yarn set version 4.9.2
+          ref: ${{ inputs.ref || github.ref_name }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
       - name: Install packages and build
         run: |
-          yarn install --check-cache
-          yarn run build-main
+          npm ci
+          npm run build-main
       - name: Create .nojekyll file
         run: touch ./dist/.nojekyll
       - name: Upload artifact

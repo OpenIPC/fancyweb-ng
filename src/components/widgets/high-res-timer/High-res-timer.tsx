@@ -62,7 +62,7 @@ export default function HighResTimer() {
 
   return (
     <div className="flex flex-col items-center max-w-full">
-      <p className="font-bold text-[10vw] leading-[1]">{time}</p>
+      <p className="font-bold text-[10vw] leading-none">{time}</p>
       <p className="text-[4vw]">{fps} fps</p>
       <div className="flex gap-x-2 mt-3 mb-5">
         { play

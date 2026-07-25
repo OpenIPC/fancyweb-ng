@@ -8,8 +8,8 @@
       "DOM",
       "DOM.Iterable"
     ],
+    "types": ["node"],
     "skipLibCheck": true,
-    "baseUrl": "./src",
     "paths": {
       "react": [
         "./node_modules/preact/compat/"

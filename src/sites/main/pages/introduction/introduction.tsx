@@ -11,7 +11,7 @@ export default function Introduction() {
         <div className="py-4">
           <H1 content={introduction.h1} />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-[11fr,5fr] gap-x-12">
+        <div className="grid grid-cols-1 md:grid-cols-[11fr_5fr] gap-x-12">
           <section className="flex flex-col">
             <div className="py-2">
               <H2 content={introduction.h2_1} />

@@ -52,7 +52,7 @@ export default function CameraSnapshot(props: CameraSnapshotProps) {
   return (
     <div className="border-wallet-border border rounded-md">
       { loading
-        ? <><div className={`min-w-40 aspect-[16/9] relative after:absolute after:inset-0 after:content-[''] after:bg-[url('/src/assets/icons/ui/camera-preview-background.svg')] after:bg-repeat after:bg-[length:20px_20px] after:opacity-25`}>
+        ? <><div className={`min-w-40 aspect-video relative after:absolute after:inset-0 after:content-[''] after:bg-[url('/src/assets/icons/ui/camera-preview-background.svg')] after:bg-repeat after:bg-size-[20px_20px] after:opacity-25`}>
             <div className="flex flex-row justify-center items-center absolute inset-0 z-10 *:w-12 *:h-12">
               <CameraPreloader />
             </div>
@@ -67,8 +67,8 @@ export default function CameraSnapshot(props: CameraSnapshotProps) {
             <div className="w-[48%] h-[20px] rounded bg-wallet-border"></div>
           </div></>
         : <>
-            <div className="min-w-40 aspect-[16/9]">
-              <video className="min-w-40 w-full aspect-[16/9]" ref={video} autoplay></video>
+            <div className="min-w-40 aspect-video">
+              <video className="min-w-40 w-full aspect-video" ref={video} autoplay></video>
             </div>
             <div className="p-2 pt-4">
               <div className="flex flex-row flex-nowrap justify-between gap-x-4">
