@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/preact';
+import type {Meta, StoryObj} from '@storybook/preact';
 import IconButton from './icon-button';
 import UIIcons from '../../../../assets/icons/ui';
 
-const { Burger: BurgerIcon } = UIIcons;
+const {Burger: BurgerIcon} = UIIcons;
 
 const meta: Meta<typeof IconButton> = {
   component: IconButton,
@@ -19,9 +19,7 @@ export const BurgerButton: Story = {
   args: {
     withBorder: true,
   },
-  render: (args) => (
-    <IconButton {...args}>
-      <BurgerIcon />
-    </IconButton>
-  ),
-}
+  render: (args) => <IconButton {...args}>
+    <BurgerIcon />
+  </IconButton>,
+};

@@ -20,7 +20,7 @@ export default function ToggleButton({ size, checked, disabled, Icon, changeHand
   function getClass() {
     const baseClass = `block border border-0 rounded-md relative overflow-hidden flex flex-row justify-center items-center ${getSize(size)}`;
     if (disabled) return `${baseClass} bg-grey flex flex-row justify-center items-center`;
-    return `${baseClass} bg-brand-blue has-[:checked]:bg-btn-blue-click has-[:checked]:shadow-[inset_3px_3px_6px_#000051]`
+    return `${baseClass} bg-brand-blue has-checked:bg-btn-blue-click has-checked:shadow-[inset_3px_3px_6px_#000051]`
   }
 
   return (

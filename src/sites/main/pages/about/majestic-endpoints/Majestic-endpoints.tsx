@@ -57,7 +57,7 @@ export default function MajesticEndpoints() {
             <dl className="flex flex-col gap-y-2 text-black pt-2">
               {majesticEndpointsConstants.video.map(el =>
                 <div>
-                  <dt className="font-bold break-words">{pText(el.h)}</dt>
+                  <dt className="font-bold wrap-break-word">{pText(el.h)}</dt>
                   <dd>{pText(el.p)}</dd>
                 </div>
               )}
@@ -126,7 +126,7 @@ export default function MajesticEndpoints() {
         </div>
       </div>
       <ul className="pt-6">
-        {majesticEndpointsConstants.footnotes.map((el, i) => <li id={`fn${i+1}`} className="text-sm break-words">{i + 1}. {el}</li>)}
+        {majesticEndpointsConstants.footnotes.map((el, i) => <li id={`fn${i+1}`} className="text-sm wrap-break-word">{i + 1}. {el}</li>)}
       </ul>
       <div className="pt-6">
         <Paragraph content={majesticEndpointsConstants.wikiLink} />

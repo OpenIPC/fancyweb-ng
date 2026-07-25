@@ -1,5 +1,5 @@
-import type { Preview } from "@storybook/preact";
-import '../src/sites/camera/index.css';
+import type {Preview} from '@storybook/preact-vite';
+import '../global.css';
 
 const preview: Preview = {
   parameters: {

@@ -80,10 +80,10 @@ const SoCManagedList = (props: SoCManagedListProps) => {
       <AbcSelector letters={letters} curSelected={filterState.abcSelector} clickHandler={handleLetterClick}/>
       <VendorsList list={getVendorsList(filterState, fullList)} clickHandler={handleVendorClick} curSelected={filterState.vendorSelector} />
       <div className="flex flex-col gap-4 md:flex-row">
-        <div className="grow-[6] shrink-[6] basis-[60%]">
+        <div className="grow-6 shrink-6 basis-[60%]">
           <SoCList list={getSoCsList(filterState, fullList)} />
         </div>
-        <div className="grow-[3] shrink-[3] basis-[30%]">
+        <div className="grow-3 shrink-3 basis-[30%]">
           <FirmwareDevStages />
         </div>
       </div>
