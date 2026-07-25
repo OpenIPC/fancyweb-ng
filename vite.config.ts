@@ -2,6 +2,13 @@ import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 import svgr from 'vite-plugin-svgr';
 import tailwindcss from '@tailwindcss/vite';
+import { UserConfig, ConfigEnv } from 'vite';
+
+type Modes = 'main' | 'camera' | 'fpv' | 'test';
+type Config = {
+  serve: Record<Modes, () => UserConfig>,
+  build: Record<Exclude<Modes, 'test'>, () => UserConfig>,
+}
 
 const svgrOpts = {
   include: '**/*.svg?react',
@@ -13,33 +20,16 @@ const serverOpts = {
   port: 5173,
 };
 
-export default defineConfig({
-  root: './src/sites/main',
-  base: '/fancyweb-ng/',
-  build: {
-    outDir: '../../../dist/main',
-    emptyOutDir: true,
-  },
-  plugins: [
-    preact(),
-    svgr(svgrOpts), 
-    tailwindcss(),
-  ],
-});
-
-/*
-const getServeConf = (root) => {
+const getServeConf = (root: string) => {
   console.log('Serve config. root:', root);
-  const conf = {
+  return {
     ...root && { root },
     server: serverOpts,
     plugins: [preact(), tailwindcss(), svgr(svgrOpts)],
   };
-  console.log(conf);
-  return conf;
 };
 
-const getBuildConf = (root, outDir, publicDir) => {
+const getBuildConf = ( root: string, outDir: string, publicDir?: string) => {
   return {
     root,
     ...publicDir && {publicDir},
@@ -52,16 +42,14 @@ const getBuildConf = (root, outDir, publicDir) => {
   };
 };
 
-export default defineConfig((args) => {
+export default defineConfig((args: ConfigEnv) => {
   const {command, mode} = args;
-  console.log(command, mode);
-  const config = {
+  const config: Config = {
     serve: {
       main: () => getServeConf('./src/sites/main'),
       camera: () => getServeConf('./src/sites/camera'),
       fpv: () => getServeConf('./src/sites/fpv'),
       test: () => getServeConf('./src/utils'),
-      development: () => getServeConf(),
     },
     build: {
       main: () => getBuildConf(
@@ -77,21 +65,23 @@ export default defineConfig((args) => {
         './src/sites/fpv',
         '../../../dist/fpv',
       ),
-      production: () => {
-        return {
-          plugins: [preact(), svgr(svgrOpts), tailwindcss()],
-        };
-      },
     },
   };
   if (
-    command === 'serve' &&
-    (mode === 'main' || mode === 'camera' || mode === 'fpv' || mode === 'development' || mode === 'test')
-  ) return config[command][mode]();
+    command === 'serve'
+    && (
+      mode === 'main'
+      || mode === 'camera'
+      || mode === 'fpv'
+      || mode === 'test')
+    ) return config[command][mode]();
   if (
-    command === 'build' &&
-    (mode === 'main' || mode === 'camera' || mode === 'fpv' || mode === 'production')
+    command === 'build'
+    && (
+      mode === 'main'
+      || mode === 'camera'
+      || mode === 'fpv' 
+    )
   ) return config[command][mode]();
   throw new Error('Unknown config modifiers');
 });
-*/

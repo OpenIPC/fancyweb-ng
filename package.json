@@ -7,7 +7,6 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "dev": "vite",
     "dev-camera": "vite --mode='camera'",
     "dev-main": "vite --mode='main' --host",
     "dev-fpv": "vite --mode='fpv'",
