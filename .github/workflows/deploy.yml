@@ -27,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: deploy
       - uses: actions/setup-node@v5
         with:
           node-version: '24'
