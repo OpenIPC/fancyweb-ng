@@ -1,10 +1,10 @@
 services:
-  fancyweb-ng:
-    container_name: fancyweb-ng
+  fancyweb-ng-dev:
+    container_name: fancyweb-ng-dev
     tty: true
     build:
       context: ../
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/Dockerfile-dev
       no_cache: true
     command: npm run dev-main 
     develop:
@@ -19,3 +19,23 @@ services:
           path: packaje.json
     ports:
       - 5173:5173
+  fancyweb-ng-storybook:
+    container_name: fancyweb-ng-storybook
+    tty: true
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile-storybook
+      no_cache: true
+    command: npm run storybook
+    develop:
+      watch:
+        - path: ../src
+          action: sync
+          target: /opt/fancyweb-ng/src
+          ignore:
+            - node_modules
+            - dist
+        - action: rebuild
+          path: packaje.json
+    ports:
+      - 6006:6006
