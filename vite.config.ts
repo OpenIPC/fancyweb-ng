@@ -24,6 +24,9 @@ const svgrOpts = {
 const serverOpts = {
   host: '0.0.0.0',
   port: 5173,
+  ws: {
+    clientPort: 5173,
+  },
 };
 
 const getServeConf = (root?: string) => {

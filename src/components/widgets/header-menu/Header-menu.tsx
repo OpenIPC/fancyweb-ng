@@ -5,10 +5,10 @@ import { useState } from 'preact/hooks';
 
 export default function HeaderMenu(props: Omit<HeaderMenuProps, 'isMobMenuVisible'> ) {
   const { list } = props;
-  const [ isMobMenuVisible, setMobMenuVisible ] = useState(false);
+  const [ isMobMenuVisible, setIsMobMenuVisible ] = useState(false);
 
   function handleBurgerClick() {
-    setMobMenuVisible(!isMobMenuVisible);
+    setIsMobMenuVisible(!isMobMenuVisible);
   }
 
   return (
