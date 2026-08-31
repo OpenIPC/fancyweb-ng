@@ -4,10 +4,16 @@ import svgr from 'vite-plugin-svgr';
 import tailwindcss from '@tailwindcss/vite';
 import { UserConfig, ConfigEnv } from 'vite';
 
-type Modes = 'main' | 'camera' | 'fpv' | 'test';
+
+const buildModes = [ 'main', 'camera', 'fpv' ] as const;
+const devModes = [ 'test', 'development', ...buildModes ] as const;
+
+type DevModes = typeof devModes[number];
+type BuildModes = typeof buildModes[number];
+
 type Config = {
-  serve: Record<Modes, () => UserConfig>,
-  build: Record<Exclude<Modes, 'test'>, () => UserConfig>,
+  serve: Record<DevModes, () => UserConfig>,
+  build: Record<BuildModes, () => UserConfig>,
 }
 
 const svgrOpts = {
@@ -18,10 +24,12 @@ const svgrOpts = {
 const serverOpts = {
   host: '0.0.0.0',
   port: 5173,
+  ws: {
+    clientPort: 5173,
+  },
 };
 
-const getServeConf = (root: string) => {
-  console.log('Serve config. root:', root);
+const getServeConf = (root?: string) => {
   return {
     ...root && { root },
     server: serverOpts,
@@ -43,13 +51,15 @@ const getBuildConf = ( root: string, outDir: string, publicDir?: string) => {
 };
 
 export default defineConfig((args: ConfigEnv) => {
-  const {command, mode} = args;
+  console.log("args:", args);
+  const { command, mode } = args;
   const config: Config = {
     serve: {
       main: () => getServeConf('./src/sites/main'),
       camera: () => getServeConf('./src/sites/camera'),
       fpv: () => getServeConf('./src/sites/fpv'),
       test: () => getServeConf('./src/utils'),
+      development: () => getServeConf(),
     },
     build: {
       main: () => getBuildConf(
@@ -67,21 +77,12 @@ export default defineConfig((args: ConfigEnv) => {
       ),
     },
   };
-  if (
-    command === 'serve'
-    && (
-      mode === 'main'
-      || mode === 'camera'
-      || mode === 'fpv'
-      || mode === 'test')
-    ) return config[command][mode]();
-  if (
-    command === 'build'
-    && (
-      mode === 'main'
-      || mode === 'camera'
-      || mode === 'fpv' 
-    )
-  ) return config[command][mode]();
+
+  if (command === 'serve' && devModes.includes(mode as DevModes))
+    return config[command][mode as DevModes]();
+
+  if ( command === 'build' && buildModes.includes(mode as BuildModes))
+      return config[command][mode as BuildModes]();
+
   throw new Error('Unknown config modifiers');
 });
