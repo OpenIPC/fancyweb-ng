@@ -1,17 +1,13 @@
-import { useState } from 'preact/hooks';
-
 type PropsType = {
   clickHandler: () => void;
+  isOpen: boolean;
 }
 
-
 export default function HeaderBurgerButton(props: PropsType) {
-  const { clickHandler } = props;
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { clickHandler, isOpen } = props;
 
   function handleClick(evt: MouseEvent) {
     evt.preventDefault();
-    setIsOpen(isOpen => !isOpen);
     clickHandler();
   }
 
@@ -21,7 +17,6 @@ export default function HeaderBurgerButton(props: PropsType) {
         relative m-0 h-[22px] w-[29px] cursor-pointer opacity-80 transition-all
         duration-500 ease-in-out
         hover:opacity-100
-        md:hidden
       "
       onClick={handleClick}
     >

@@ -1,7 +1,9 @@
 import Paragraph from '../paragraph/paragraph';
 import type {InformationBannerProps} from './information-type';
 
-export default function InformationBanner ({content, type}: InformationBannerProps) {
+export default function InformationBanner(
+  { content, type }: InformationBannerProps
+) {
   function getColorStyle (type: NonNullable<InformationBannerProps['type']>) {
     const stylesFab: Record<NonNullable<InformationBannerProps['type']>, () => void> = {
       information: () => 'text-info-text bg-stages-bg border-stages-border',
@@ -12,7 +14,7 @@ export default function InformationBanner ({content, type}: InformationBannerPro
 
   return (
     <div className={`
-      flex flex-col gap-y-4 rounded border p-4
+      flex flex-col gap-y-4 rounded-sm border p-4
       ${type
       ? getColorStyle(type)
       : getColorStyle('information')}

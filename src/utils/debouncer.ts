@@ -1,13 +1,20 @@
-export function debounce<F extends (...args: Parameters<F>) => ReturnType<F>>(
+type Timeout = {
+  current: NodeJS.Timeout|undefined,
+};
+  
+export function debounce<
+  F extends (...args: Parameters<F>) => ReturnType<F>|void
+>(
   fn: F,
   wait: number,
-) {
-  let timeout: NodeJS.Timeout;
+): [(...args: Parameters<F>) => ReturnType<F>|void, Timeout] {
+  const timeout: Timeout = { current: undefined };
 
   function debounced(...args: Parameters<F>) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), wait);
+    clearTimeout(timeout.current);
+    timeout.current = setTimeout(() => fn(...args), wait);
   }
 
-  return debounced;
+  return [debounced, timeout];
 }
+

@@ -17,18 +17,18 @@ import QRCode from './pages/tools/qr-code';
 import HighResolutionTimer from './pages/tools/high-resolution-timer';
 import FirmwarePartitionCalculator from './pages/tools/fw-part-calc/Fw-part-calc';
 import DonateBanner from '../../components/widgets/donate-banner/donate-banner';
-import {headerMenuConstants} from './constants';
 import {LocationProvider, ErrorBoundary, Router, Route} from 'preact-iso';
+import { MENU_ITEMS } from '../../components/widgets/header-menu/constants';
 
 export function App () {
   return (
     <>
-      <Header>
-        <HeaderMenu list={headerMenuConstants} />
-      </Header>
-      <main className="mx-4 flex flex-auto flex-col items-center justify-start">
-        <div className="w-full max-w-[1240px]">
-          <LocationProvider>
+      <LocationProvider>
+        <Header>
+          <HeaderMenu menuItems={MENU_ITEMS} />
+        </Header>
+        <main className="mx-4 flex flex-auto flex-col items-center justify-start">
+          <div className="w-full max-w-[1240px]">
             <ErrorBoundary>
               <Router>
                 <Route path="/" component={Introduction} />
@@ -67,13 +67,13 @@ export function App () {
                 />
               </Router>
             </ErrorBoundary>
-          </LocationProvider>
         </div>
-        <div className="mt-auto w-full max-w-[1240px] pt-12 pb-4">
-          <DonateBanner size="big" />
-        </div>
-      </main>
-      <Footer/>
+          <div className="mt-auto w-full max-w-[1240px] pt-12 pb-4">
+            <DonateBanner size="big" />
+          </div>
+        </main>
+        <Footer/>
+      </LocationProvider>
     </>
-  );
-}
+      );
+      }

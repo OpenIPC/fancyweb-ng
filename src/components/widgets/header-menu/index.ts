@@ -1,1 +1,1 @@
-export { default } from './Header-menu';
+export { default } from './Header-menu.tsx';

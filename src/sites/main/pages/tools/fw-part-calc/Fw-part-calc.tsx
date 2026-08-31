@@ -25,7 +25,8 @@ export default function FirmwarePartitionCalculator() {
   }
 
   const debouncedHandleInputChange = useMemo(() => {
-    return debounce(handleInputChange, 500);
+    const [ fn ] = debounce(handleInputChange, 500);
+    return fn;
   }, [handleOnChange, 500]);
 
   return (
@@ -33,7 +34,7 @@ export default function FirmwarePartitionCalculator() {
       <div className="py-4">
         <H1 content="Firmware Partition Calculator" />
       </div>
-      <div className="flex flex-row gap-x-1 mb-6">
+      <div className="mb-6 flex flex-row gap-x-1">
         <MainButton size='s' caption="Lite" clickHandler={useLiteConfig} />
         <MainButton size='s' caption="Ultimate" clickHandler={useUltimateConfig} />
         <div className="ml-auto">
@@ -41,7 +42,10 @@ export default function FirmwarePartitionCalculator() {
         </div>
       </div>
       <div className="flex flex-col gap-y-2">
-        <div className="flex flex-col gap-y-2 md:flex-row md:gap-x-2">
+        <div className="
+          flex flex-col gap-y-2
+          md:flex-row md:gap-x-2
+        ">
           <div className="md:w-[calc(20%-6px)]">
             <Select
               label='MTD device name'
@@ -62,7 +66,10 @@ export default function FirmwarePartitionCalculator() {
             <Input elemName='initial-offset' label='Initial offset, dec or hex, bytes' onInput={handleOnChange} borderWidth='1px' borderColor='default' value={formElemsState['initial-offset'].value} state={formElemsState['initial-offset'].state} errorText={formElemsState['initial-offset'].error} dir="rtl" />
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 mt-4 md:mt-0 mt-4 md:mt-0 md:flex-row md:gap-x-2 md:items-center">
+        <div className="
+          mt-4 flex flex-col gap-y-2
+          md:mt-0 md:flex-row md:items-center md:gap-x-2
+        ">
           <div className="md:w-[20%]">
             <Input elemName='part0-name' label='Partition 0 name' borderWidth='4px' borderColor='partition0' value={formElemsState['part0-name'].value} state={formElemsState['part0-name'].state} onInput={debouncedHandleInputChange} />
           </div>
@@ -79,7 +86,10 @@ export default function FirmwarePartitionCalculator() {
             <Output label="End address"  data={formElemsState['part0-end'].value} />
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 mt-4 md:mt-0 mt-4 md:mt-0 md:flex-row md:gap-x-2 md:items-center">
+        <div className="
+          mt-4 flex flex-col gap-y-2
+          md:mt-0 md:flex-row md:items-center md:gap-x-2
+        ">
           <div className="md:w-[20%]">
             <Input elemName='part1-name' label='Partition 1 name' borderWidth='4px' borderColor='partition1' value={formElemsState['part1-name'].value} state={formElemsState['part1-name'].state} onInput={debouncedHandleInputChange} />
           </div>
@@ -96,7 +106,10 @@ export default function FirmwarePartitionCalculator() {
             <Output label="End address" data={formElemsState['part1-end'].value} />
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 mt-4 md:mt-0 md:flex-row md:gap-x-2 md:items-center">
+        <div className="
+          mt-4 flex flex-col gap-y-2
+          md:mt-0 md:flex-row md:items-center md:gap-x-2
+        ">
           <div className="md:w-[20%]">
             <Input elemName='part2-name' label='Partition 2 name' borderWidth='4px' borderColor='partition2' value={formElemsState['part2-name'].value} state={formElemsState['part2-name'].state} onInput={debouncedHandleInputChange} />
           </div>
@@ -113,7 +126,10 @@ export default function FirmwarePartitionCalculator() {
             <Output label="End address" data={formElemsState['part2-end'].value} />
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 mt-4 md:mt-0 md:flex-row md:gap-x-2 md:items-center">
+        <div className="
+          mt-4 flex flex-col gap-y-2
+          md:mt-0 md:flex-row md:items-center md:gap-x-2
+        ">
           <div className="md:w-[20%]">
             <Input elemName='part3-name' label='Partition 3 name' borderWidth='4px' borderColor='partition3' value={formElemsState['part3-name'].value} state={formElemsState['part3-name'].state} onInput={debouncedHandleInputChange} />
           </div>
@@ -130,7 +146,10 @@ export default function FirmwarePartitionCalculator() {
             <Output label="End address" data={formElemsState['part3-end'].value} />
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 mt-4 md:mt-0 md:flex-row md:gap-x-2 md:items-center">
+        <div className="
+          mt-4 flex flex-col gap-y-2
+          md:mt-0 md:flex-row md:items-center md:gap-x-2
+        ">
           <div className="md:w-[20%]">
             <Input elemName='part4-name' label='Partition 4 name' borderWidth='4px' borderColor='partition4' value={formElemsState['part4-name'].value} state={formElemsState['part4-name'].state} onInput={debouncedHandleInputChange} />
           </div>
@@ -147,7 +166,10 @@ export default function FirmwarePartitionCalculator() {
             <Output label="End address" data={formElemsState['part4-end'].value} />
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 mt-4 md:mt-0 md:flex-row md:gap-x-2 md:items-center">
+        <div className="
+          mt-4 flex flex-col gap-y-2
+          md:mt-0 md:flex-row md:items-center md:gap-x-2
+        ">
           <div className="md:w-[20%]">
             <Input elemName='part5-name' label='Partition 5 name' borderWidth='4px' borderColor='partition5' value={formElemsState['part5-name'].value} state={formElemsState['part5-name'].state} onInput={debouncedHandleInputChange} />
           </div>
@@ -164,7 +186,10 @@ export default function FirmwarePartitionCalculator() {
             <Output label="End address" data={formElemsState['part5-end'].value} />
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 mt-4 md:mt-0 md:flex-row md:gap-x-2 md:items-center">
+        <div className="
+          mt-4 flex flex-col gap-y-2
+          md:mt-0 md:flex-row md:items-center md:gap-x-2
+        ">
           <div className="md:w-[20%]">
             <Input elemName='part6-name' label='Partition 6 name' borderWidth='4px' borderColor='partition6' value={formElemsState['part6-name'].value} state={formElemsState['part6-name'].state} onInput={debouncedHandleInputChange} />
           </div>
@@ -181,7 +206,10 @@ export default function FirmwarePartitionCalculator() {
             <Output label="End address" data={formElemsState['part6-end'].value} />
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 mt-4 md:mt-0 md:flex-row md:gap-x-2 md:items-center">
+        <div className="
+          mt-4 flex flex-col gap-y-2
+          md:mt-0 md:flex-row md:items-center md:gap-x-2
+        ">
           <div className="md:w-[20%]">
             <Input elemName='part7-name' label='Partition 7 name' borderWidth='4px' borderColor='partition7' value={formElemsState['part7-name'].value} state={formElemsState['part7-name'].state} onInput={debouncedHandleInputChange} />
           </div>
